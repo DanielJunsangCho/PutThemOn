@@ -9,42 +9,15 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-//    @Environment(\.modelContext) private var modelContext
-//    @Query private var items: [Item]
-    
     @State private var username = ""
     @State private var password = ""
     @State private var wrongUsername = 0
     @State private var wrongPassword = 0
     @State private var showingLoginScreen = false
+    @State private var path = NavigationPath()
 
     var body: some View {
-//        NavigationSplitView {
-//            List {
-//                ForEach(items) { item in
-//                    NavigationLink {
-//                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-//                    } label: {
-//                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-//                    }
-//                }
-//                .onDelete(perform: deleteItems)
-//            }
-//            .toolbar {
-//                ToolbarItem(placement: .navigationBarTrailing) {
-//                    EditButton()
-//                }
-//                ToolbarItem {
-//                    Button(action: addItem) {
-//                        Label("Add Item", systemImage: "plus")
-//                    }
-//                }
-//            }
-//        } detail: {
-//            Text("Select an item")
-//        }
-        
-        NavigationView {
+        NavigationStack(path: $path) {
             ZStack {
                 Color.blue
                     .ignoresSafeArea()
@@ -73,42 +46,39 @@ struct ContentView: View {
                         .cornerRadius(10)
                         .border(.red, width:CGFloat(wrongUsername))
                     Button("Login") {
-                        authenticateUser(username: username, password: password)
+                        //need to add functionality to authenticate user
+                        path.append("LoginView")
                     }
                     .foregroundColor(.white)
                     .frame(width:300, height:50)
                     .background(Color.blue)
                     .cornerRadius(10)
-                    
-                    NavigationLink(destination: Text("You are logged in @\(username)"), isActive: $showingLoginScreen) {
-                        EmptyView()
-                    }
                 }
             }
-            
+            .navigationDestination(for: String.self) { string in
+                if string == "LoginView" {
+                    LoginView(username: $username)
+                }
+            }
         }
         .navigationBarHidden(true)
 
     }
-
-//    private func addItem() {
-//        withAnimation {
-//            let newItem = Item(timestamp: Date())
-//            modelContext.insert(newItem)
-//        }
-//    }
-//
-//    private func deleteItems(offsets: IndexSet) {
-//        withAnimation {
-//            for index in offsets {
-//                modelContext.delete(items[index])
-//            }
-//        }
-//    }
-//    
     //obviously super limited to one user. will have to create a signup for this.
     func authenticateUser(username: String, password: String) {
         
+    }
+}
+
+struct LoginView: View {
+    @Environment(\.isPresented) private var isPresented
+    @Binding var username: String
+
+    var body: some View {
+        VStack {
+            Text("You are logged in @\(username)")
+
+        }
     }
 }
 
