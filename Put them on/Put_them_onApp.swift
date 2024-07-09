@@ -7,9 +7,16 @@
 
 import SwiftUI
 import SwiftData
+import FirebaseCore
+import FirebaseAuth
+import GoogleSignIn
+
 
 @main
 struct Put_them_onApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject private var authViewModel = AuthenticationViewModel()
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -25,8 +32,15 @@ struct Put_them_onApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AuthenticatedView(unauthenticated: LoginView()) {
+                Text("You're logged in!")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+            .environmentObject(authViewModel)
         }
         .modelContainer(sharedModelContainer)
     }
 }
+
+
+
