@@ -10,6 +10,7 @@ import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
 import GoogleSignInSwift
+import FirebaseStorage
 
 enum AuthenticationState {
   case unauthenticated
@@ -35,6 +36,9 @@ class AuthenticationViewModel: ObservableObject {
   @Published var errorMessage: String = ""
   @Published var user: User?
   @Published var displayName: String = ""
+    @Published var username: String = ""
+        @Published var profileImage: UIImage?
+
 
   init() {
     registerAuthStateHandler()
@@ -61,10 +65,11 @@ class AuthenticationViewModel: ObservableObject {
     }
   }
 
-  func switchFlow() {
-    flow = flow == .login ? .signUp : .login
-    errorMessage = ""
-  }
+    func switchFlow() {
+        flow = (flow == .login) ? .signUp : .login
+        print("Switched to: \(flow)") // Add this line for debugging
+    }
+
 
   private func wait() async {
     do {
@@ -98,19 +103,35 @@ extension AuthenticationViewModel {
     }
   }
 
-  func signUpWithEmailPassword() async -> Bool {
-    authenticationState = .authenticating
-    do  {
-      try await Auth.auth().createUser(withEmail: email, password: password)
-      return true
+    func signUpWithEmailPassword() async -> Bool {
+        authenticationState = .authenticating
+        do {
+            try await Auth.auth().createUser(withEmail: email, password: password)
+            let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+            changeRequest?.displayName = username
+            if let image = profileImage {
+                // Upload image to Firebase Storage and get URL
+                let imageUrl = try await uploadProfileImage(image)
+                changeRequest?.photoURL = imageUrl
+            }
+            try await changeRequest?.commitChanges()
+            return true
+        } catch {
+            print(error)
+            errorMessage = error.localizedDescription
+            authenticationState = .unauthenticated
+            return false
+        }
     }
-    catch {
-      print(error)
-      errorMessage = error.localizedDescription
-      authenticationState = .unauthenticated
-      return false
+
+    func uploadProfileImage(_ image: UIImage) async throws -> URL {
+        guard let imageData = image.jpegData(compressionQuality: 0.5) else {
+            throw NSError(domain: "ImageUploadError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to convert image to data"])
+        }
+        let storageRef = Storage.storage().reference().child("profile_images/\(UUID().uuidString).jpg")
+        let _ = try await storageRef.putDataAsync(imageData)
+        return try await storageRef.downloadURL()
     }
-  }
 
   func signOut() {
     do {
