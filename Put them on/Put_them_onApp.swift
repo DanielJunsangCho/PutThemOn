@@ -11,7 +11,6 @@ import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
 
-
 @main
 struct Put_them_onApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
@@ -33,14 +32,10 @@ struct Put_them_onApp: App {
     var body: some Scene {
         WindowGroup {
             AuthenticatedView(unauthenticated: LoginView()) {
-                Text("You're logged in!")
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                FeedView()
             }
             .environmentObject(authViewModel)
         }
         .modelContainer(sharedModelContainer)
     }
 }
-
-
-

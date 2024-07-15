@@ -13,12 +13,12 @@ struct FeedView: View {
         TabView {
             FriendsFeedView()
                 .tabItem {
-                    Label("Home", systemImage: "house.fill")
+                    Label("Friends", systemImage: "person.2.fill")
                 }
             
             DiscoverFeedView()
                 .tabItem {
-                    Label("Discover", systemImage: "magnifyingglass")
+                    Label("Discover", systemImage: "globe")
                 }
             
             Text("Create")
@@ -56,15 +56,9 @@ struct FriendsFeedView: View {
                         ZStack(alignment: .topTrailing) {
                             SongCoverView(song: song)
                                 .frame(width: geometry.size.width, height: geometry.size.width)
-                            
-                            ProfilePictureView()
-                                .frame(width: 40, height: 40)
-                                .padding()
                         }
                         
                         SongInfoView(song: song)
-                        
-                        CommentSection(comment: .constant(""))
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height)
                     .background(Color(UIColor.systemBackground))
@@ -92,15 +86,9 @@ struct DiscoverFeedView: View {
                         ZStack(alignment: .topTrailing) {
                             SongCoverView(song: song)
                                 .frame(width: geometry.size.width, height: geometry.size.width)
-                            
-                            ProfilePictureView()
-                                .frame(width: 40, height: 40)
-                                .padding()
                         }
                         
                         SongInfoView(song: song)
-                        
-                        CommentSection(comment: .constant(""))
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height)
                     .background(Color(UIColor.systemBackground))
@@ -129,48 +117,59 @@ struct SongCoverView: View {
 
 struct SongInfoView: View {
     @State var song: Song
+    @State private var showComments = false
     
     var body: some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 8) {
-                Text(song.title)
-                    .font(.title2)
-                    .fontWeight(.bold)
-                Text(song.artist)
-                    .font(.subheadline)
+        VStack {
+            HStack {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(song.title)
+                        .font(.title2)
+                        .fontWeight(.bold)
+                    Text(song.artist)
+                        .font(.subheadline)
+                    
+                    Spacer()
+                }
+                .padding()
                 
                 Spacer()
-            }
-            .padding()
-            
-            Spacer()
-            
-            VStack(spacing: 20) {
-                Button(action: { song.likeCount += 1 }) {
-                    VStack {
-                        Image(systemName: "heart")
+                
+                VStack(spacing: 20) {
+                    ProfilePictureView()
+                        .frame(width: 40, height: 40)
+                        .padding(.top)
+                    
+                    Button(action: { song.likeCount += 1 }) {
+                        VStack {
+                            Image(systemName: "heart")
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                            Text("\(song.likeCount)")
+                                .font(.subheadline)
+                        }
+                    }
+                    
+                    Button(action: { showComments.toggle() }) {
+                        Image(systemName: "message.fill")
                             .resizable()
                             .frame(width: 30, height: 30)
-                        Text("\(song.likeCount)")
-                            .font(.subheadline)
+                    }
+                    
+                    Button(action: { print("Play/Pause tapped") }) {
+                        Image(systemName: "play.circle.fill")
+                            .resizable()
+                            .frame(width: 44, height: 44)
                     }
                 }
-                
-                Button(action: { print("Comment tapped") }) {
-                    Image(systemName: "message.fill")
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                }
-                
-                Button(action: { print("Play/Pause tapped") }) {
-                    Image(systemName: "play.circle.fill")
-                        .resizable()
-                        .frame(width: 44, height: 44)
-                }
+                .padding()
             }
-            .padding()
+            .background(Color(UIColor.secondarySystemBackground))
+            
+            if showComments {
+                CommentSection(comment: .constant(""))
+            }
         }
-        .background(Color(UIColor.secondarySystemBackground))
     }
 }
 
