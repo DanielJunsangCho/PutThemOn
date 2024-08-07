@@ -36,8 +36,8 @@ class AuthenticationViewModel: ObservableObject {
   @Published var errorMessage: String = ""
   @Published var user: User?
   @Published var displayName: String = ""
-    @Published var username: String = ""
-        @Published var profileImage: UIImage?
+  @Published var username: String = ""
+  @Published var profileImage: UIImage?
 
 
   init() {
@@ -85,8 +85,8 @@ class AuthenticationViewModel: ObservableObject {
     email = ""
     password = ""
     confirmPassword = ""
-  }
-}
+    }
+ }
 
 extension AuthenticationViewModel {
   func signInWithEmailPassword() async -> Bool {
