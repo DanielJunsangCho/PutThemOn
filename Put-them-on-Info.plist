@@ -15,5 +15,25 @@
 	</array>
 	<key>GIDClientID</key>
 	<string>997382347441-47q0r78aqnv6gm07seqpsbs2727tf2gf.apps.googleusercontent.com</string>
+	<key>CFBundleURLTypes - 2</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>put-them-on</string>
+			</array>
+			<key>CFBundleURLName</key>
+			<string>Daniel-Cho.Put-them-on</string>
+		</dict>
+	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>spotify</string>
+	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

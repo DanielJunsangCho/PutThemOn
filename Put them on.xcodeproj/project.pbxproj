@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2A207F7C2C3DCCD300CFE540 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A207F7B2C3DCCD300CFE540 /* FeedView.swift */; };
+		2A92A4962C6526A50014EFF6 /* SpotifyiOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A92A4952C6526A40014EFF6 /* SpotifyiOS.xcframework */; };
+		2A92A4A32C6550CB0014EFF6 /* Spotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A92A4A22C6550CB0014EFF6 /* Spotify.swift */; };
+		2A92A4A52C6550F70014EFF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A92A4A42C6550F70014EFF6 /* ViewController.swift */; };
+		2A92A4A72C65512F0014EFF6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A92A4A62C65512E0014EFF6 /* Constants.swift */; };
 		2AC7FCF12C3DBB7A004ACBA9 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7FCF02C3DBB7A004ACBA9 /* ImagePicker.swift */; };
 		2AC7FCF32C3DBE08004ACBA9 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2AC7FCF22C3DBE08004ACBA9 /* FirebaseStorage */; };
 		D2028AD02C2A76090044500E /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = D2028ACF2C2A76090044500E /* GoogleSignIn */; };
@@ -53,6 +57,11 @@
 
 /* Begin PBXFileReference section */
 		2A207F7B2C3DCCD300CFE540 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		2A92A4952C6526A40014EFF6 /* SpotifyiOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = SpotifyiOS.xcframework; sourceTree = "<group>"; };
+		2A92A4972C6527990014EFF6 /* Put them on-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Put them on-Bridging-Header.h"; sourceTree = "<group>"; };
+		2A92A4A22C6550CB0014EFF6 /* Spotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spotify.swift; sourceTree = "<group>"; };
+		2A92A4A42C6550F70014EFF6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2A92A4A62C65512E0014EFF6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2AC7FCF02C3DBB7A004ACBA9 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		D20730B82C2CCD24001A47BD /* Put-them-on-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Put-them-on-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D20730B92C2D1239001A47BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +96,7 @@
 				D2028AD22C2A76090044500E /* GoogleSignInSwift in Frameworks */,
 				2AC7FCF32C3DBE08004ACBA9 /* FirebaseStorage in Frameworks */,
 				D294C5882C24A7120022A364 /* FirebaseAnalytics in Frameworks */,
+				2A92A4962C6526A50014EFF6 /* SpotifyiOS.xcframework in Frameworks */,
 				D294C58A2C24A7120022A364 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,8 +163,13 @@
 				2AC7FCF02C3DBB7A004ACBA9 /* ImagePicker.swift */,
 				D28985D22C1FB628001552DB /* Item.swift */,
 				2A207F7B2C3DCCD300CFE540 /* FeedView.swift */,
+				2A92A4952C6526A40014EFF6 /* SpotifyiOS.xcframework */,
 				D28985D42C1FB62C001552DB /* Assets.xcassets */,
 				D28985D62C1FB62C001552DB /* Preview Content */,
+				2A92A4972C6527990014EFF6 /* Put them on-Bridging-Header.h */,
+				2A92A4A22C6550CB0014EFF6 /* Spotify.swift */,
+				2A92A4A42C6550F70014EFF6 /* ViewController.swift */,
+				2A92A4A62C65512E0014EFF6 /* Constants.swift */,
 			);
 			path = "Put them on";
 			sourceTree = "<group>";
@@ -261,6 +276,7 @@
 				TargetAttributes = {
 					D28985CA2C1FB628001552DB = {
 						CreatedOnToolsVersion = 15.4;
+						LastSwiftMigration = 1540;
 					};
 					D28985DC2C1FB62D001552DB = {
 						CreatedOnToolsVersion = 15.4;
@@ -329,8 +345,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D20730BA2C2D123A001A47BD /* AppDelegate.swift in Sources */,
+				2A92A4A32C6550CB0014EFF6 /* Spotify.swift in Sources */,
 				D20730BC2C2D125A001A47BD /* AuthenticationViewModel.swift in Sources */,
 				D28985D12C1FB628001552DB /* ContentView.swift in Sources */,
+				2A92A4A52C6550F70014EFF6 /* ViewController.swift in Sources */,
+				2A92A4A72C65512F0014EFF6 /* Constants.swift in Sources */,
 				D2AAC2962C344EFF00CFED48 /* LoginView.swift in Sources */,
 				D2AAC2922C344E4F00CFED48 /* AuthenticatedView.swift in Sources */,
 				D2AAC29A2C344F2A00CFED48 /* UserProfileView.swift in Sources */,
@@ -500,6 +519,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Put them on/Preview Content\"";
@@ -517,9 +537,12 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "Daniel-Cho.Put-them-on";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Put them on/Put them on-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -530,6 +553,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Put them on/Preview Content\"";
@@ -548,9 +572,11 @@
 				);
 				MARKETING_VERSION = 1.0;
 				"MTL_ENABLE_DEBUG_INFO[arch=*]" = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "Daniel-Cho.Put-them-on";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Put them on/Put them on-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
