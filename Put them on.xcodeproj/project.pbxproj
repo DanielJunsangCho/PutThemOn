@@ -32,6 +32,7 @@
 		D2AAC2942C344E7600CFED48 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AAC2932C344E7600CFED48 /* SignupView.swift */; };
 		D2AAC2962C344EFF00CFED48 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AAC2952C344EFF00CFED48 /* LoginView.swift */; };
 		D2AAC29A2C344F2A00CFED48 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AAC2992C344F2A00CFED48 /* UserProfileView.swift */; };
+		D2BD8E762C6548B900897FF4 /* FriendsFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD8E752C6548B900897FF4 /* FriendsFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		D2AAC2932C344E7600CFED48 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		D2AAC2952C344EFF00CFED48 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D2AAC2992C344F2A00CFED48 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		D2BD8E752C6548B900897FF4 /* FriendsFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,16 +142,11 @@
 		D28985CD2C1FB628001552DB /* Put them on */ = {
 			isa = PBXGroup;
 			children = (
+				D2BD8E742C65474B00897FF4 /* Setup */,
+				D2BD8E732C6545BF00897FF4 /* Reusables */,
+				D2BD8E722C6545B300897FF4 /* Views */,
+				D2BD8E712C6545AC00897FF4 /* Models */,
 				D20730B82C2CCD24001A47BD /* Put-them-on-Info.plist */,
-				D28985CE2C1FB628001552DB /* Put_them_onApp.swift */,
-				D20730BB2C2D125A001A47BD /* AuthenticationViewModel.swift */,
-				D28985D02C1FB628001552DB /* ContentView.swift */,
-				D2AAC2952C344EFF00CFED48 /* LoginView.swift */,
-				D2AAC2992C344F2A00CFED48 /* UserProfileView.swift */,
-				D2AAC28F2C344E2800CFED48 /* AuthenticationView.swift */,
-				D2AAC2912C344E4E00CFED48 /* AuthenticatedView.swift */,
-				D2AAC2932C344E7600CFED48 /* SignupView.swift */,
-				D20730B92C2D1239001A47BD /* AppDelegate.swift */,
 				2AC7FCF02C3DBB7A004ACBA9 /* ImagePicker.swift */,
 				D28985D22C1FB628001552DB /* Item.swift */,
 				2A207F7B2C3DCCD300CFE540 /* FeedView.swift */,
@@ -182,6 +179,44 @@
 				D28985ED2C1FB62D001552DB /* Put_them_onUITestsLaunchTests.swift */,
 			);
 			path = "Put them onUITests";
+			sourceTree = "<group>";
+		};
+		D2BD8E712C6545AC00897FF4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D20730BB2C2D125A001A47BD /* AuthenticationViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D2BD8E722C6545B300897FF4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC2952C344EFF00CFED48 /* LoginView.swift */,
+				D28985D02C1FB628001552DB /* ContentView.swift */,
+				D2AAC2912C344E4E00CFED48 /* AuthenticatedView.swift */,
+				D2AAC2992C344F2A00CFED48 /* UserProfileView.swift */,
+				D2AAC2932C344E7600CFED48 /* SignupView.swift */,
+				D2AAC28F2C344E2800CFED48 /* AuthenticationView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D2BD8E732C6545BF00897FF4 /* Reusables */ = {
+			isa = PBXGroup;
+			children = (
+				D2BD8E752C6548B900897FF4 /* FriendsFunctions.swift */,
+			);
+			path = Reusables;
+			sourceTree = "<group>";
+		};
+		D2BD8E742C65474B00897FF4 /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				D28985CE2C1FB628001552DB /* Put_them_onApp.swift */,
+				D20730B92C2D1239001A47BD /* AppDelegate.swift */,
+			);
+			path = Setup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +375,7 @@
 				2A207F7C2C3DCCD300CFE540 /* FeedView.swift in Sources */,
 				D28985D32C1FB628001552DB /* Item.swift in Sources */,
 				D28985CF2C1FB628001552DB /* Put_them_onApp.swift in Sources */,
+				D2BD8E762C6548B900897FF4 /* FriendsFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
